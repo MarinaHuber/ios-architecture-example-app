@@ -85,6 +85,7 @@
 		08FF955225812BC00095A408 /* FirebaseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF955125812BC00095A408 /* FirebaseTracker.swift */; };
 		08FF955625812BDE0095A408 /* FacebookTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF955525812BDE0095A408 /* FacebookTracker.swift */; };
 		08FF95732581428D0095A408 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF95722581428D0095A408 /* UITableViewCell+Extensions.swift */; };
+		9C395CF329C4F07F00A57DDD /* CartItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C395CF229C4F07F00A57DDD /* CartItemListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +179,7 @@
 		08FF955125812BC00095A408 /* FirebaseTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTracker.swift; sourceTree = "<group>"; };
 		08FF955525812BDE0095A408 /* FacebookTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookTracker.swift; sourceTree = "<group>"; };
 		08FF95722581428D0095A408 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		9C395CF229C4F07F00A57DDD /* CartItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 		087AC8342575635B006FF4E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9C395CF129C4F06E00A57DDD /* SwiftUI */,
 				087AC83D257563DE006FF4E6 /* CartItemView.xib */,
 				087AC83525756391006FF4E6 /* CartItemView.swift */,
 				087AC85625756B76006FF4E6 /* CartItemTableViewCell.swift */,
@@ -580,6 +583,14 @@
 				08209C90257169DE00FE51F5 /* LaunchScreen.storyboard */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		9C395CF129C4F06E00A57DDD /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				9C395CF229C4F07F00A57DDD /* CartItemListView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,6 +720,7 @@
 				0878FF0A25792DCC007E037E /* PaymentViewController.swift in Sources */,
 				08FF95732581428D0095A408 /* UITableViewCell+Extensions.swift in Sources */,
 				080B86A029BFCB010083D0FA /* CartSceneAnalyticsDecorators.swift in Sources */,
+				9C395CF329C4F07F00A57DDD /* CartItemListView.swift in Sources */,
 				087AC876257663DE006FF4E6 /* Discount.swift in Sources */,
 				080B868829BF525E0083D0FA /* NullPaymentService.swift in Sources */,
 				0878FEEC2579246E007E037E /* MobileShopAPIClient.swift in Sources */,
