@@ -9,19 +9,20 @@ import SwiftUI
 
 class CartItemListViewModel: ObservableObject, CartView {
     @Published var cartContent: CartViewContent
+    @Published var payTitle: String = "Pay"
 
     var delegate: CartViewOutputs?
 
-    init(content: CartViewContent) {
+    init(content: CartViewContent, payTitle: String) {
         self.cartContent = content
+        self.payTitle = payTitle
     }
     func setPayButtonTitle(_ title: String) {
-            //  1. TODO
-            //  2. snapshot testing dodati, uspredjivanje testa
+        self.payTitle = title
     }
 
     func setTitle(_ title: String) {
-            // TODO
+            // TODO title: "Cart"
     }
 
     func setLoadingIndicatorVisibility(isHidden: Bool) {

@@ -20,7 +20,7 @@ final class CartComposer: CartComposing {
     }
 
     func composeCartScene(with outputs: CartSceneOutputs) -> UIViewController {
-        let viewModel = CartItemListViewModel(content: .init(products: [], discounts: [], total: .init(title: "", amount: "")))
+        let viewModel = CartItemListViewModel(content: .init(products: [], discounts: [], total: .init(title: "", amount: "")), payTitle: "Pay")
 
         let mobileShopApiClient = URLSessionMobileShopAPIClient.development()
         let cartService = CartRemoteService(apiClient: mobileShopApiClient)
@@ -42,7 +42,7 @@ final class CartComposer: CartComposing {
 //        cartViewController.outputs = viewOutputs
         presenter.view = viewModel
         viewModel.delegate = presenter
-        let cartView = CartItemView(viewModel: viewModel)
+        let cartView = CartItemView(viewModel: viewModel, showPayView: false)
 
         let hostingController = UIHostingController(rootView: cartView)
 

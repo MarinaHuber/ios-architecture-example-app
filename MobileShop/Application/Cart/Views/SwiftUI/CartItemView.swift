@@ -10,6 +10,7 @@ import SwiftUI
 struct CartItemView: View {
 
     @ObservedObject var viewModel: CartItemListViewModel
+    @State var showPayView: Bool
 
     var body: some View {
         NavigationView {
@@ -17,13 +18,17 @@ struct CartItemView: View {
                 CartItemListView(viewModel: viewModel)
                 HStack {
                     Text("Total:").bold()
-                    Text("$25")
+                    Text(viewModel.cartContent.total.amount)
                 }
             }.navigationBarTitle("Cart")
                 .toolbar {
-                    Button("Pay") {
-                      //show confirm amount view
+                    Button(action: {
+                        showPayView = true
+                    }){
+                        Text("\(viewModel.payTitle)")
+                            .padding(20)
                     }
+                    NavigationLink("", destination:  ConfirmAmountView(viewModel: viewModel), isActive: $showPayView)
                 }
         }
         .onAppear(perform: {
@@ -33,13 +38,12 @@ struct CartItemView: View {
 }
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
-
         CartItemView(viewModel: CartItemListViewModel(content: .init(products: [
             CartProductItemViewContent(title: "Cotton T-shirt", price: "$19.99", quantity: "x2", discount: nil),
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),
             CartProductItemViewContent(title: "Coupon discount", price: "", quantity: "", discount: "5% off")
-        ], discounts: [], total: .init(title: "Total", amount: "12"))))
+        ], discounts: [], total: .init(title: "Total", amount: "12")), payTitle: "Pay"), showPayView: false)
     }
 }
 

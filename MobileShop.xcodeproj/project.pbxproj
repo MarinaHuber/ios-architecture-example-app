@@ -89,6 +89,8 @@
 		9CFF996729C85BDB00FE9ECF /* CartItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996629C85BDB00FE9ECF /* CartItemListViewModel.swift */; };
 		9CFF996C29C8606700FE9ECF /* ConfirmAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996A29C8606700FE9ECF /* ConfirmAmountView.swift */; };
 		9CFF996D29C8606700FE9ECF /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996B29C8606700FE9ECF /* CartItemView.swift */; };
+		9CFF997329C8969B00FE9ECF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 9CFF997229C8969B00FE9ECF /* SnapshotTesting */; };
+		9CFF997529C8971B00FE9ECF /* CartSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF997429C8971B00FE9ECF /* CartSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +188,7 @@
 		9CFF996629C85BDB00FE9ECF /* CartItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemListViewModel.swift; sourceTree = "<group>"; };
 		9CFF996A29C8606700FE9ECF /* ConfirmAmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAmountView.swift; sourceTree = "<group>"; };
 		9CFF996B29C8606700FE9ECF /* CartItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		9CFF997429C8971B00FE9ECF /* CartSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CFF997329C8969B00FE9ECF /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +559,7 @@
 			children = (
 				0878FF30257979EA007E037E /* CartRemoteServiceTests.swift */,
 				0878FF3C25798CBD007E037E /* CartPresenterTests.swift */,
+				9CFF997429C8971B00FE9ECF /* CartSnapshotTests.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -648,6 +653,9 @@
 				08209C9A257169DF00FE51F5 /* PBXTargetDependency */,
 			);
 			name = MobileShopTests;
+			packageProductDependencies = (
+				9CFF997229C8969B00FE9ECF /* SnapshotTesting */,
+			);
 			productName = MobileShopTests;
 			productReference = 08209C98257169DF00FE51F5 /* MobileShopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -682,6 +690,7 @@
 			packageReferences = (
 				089C72E1299CDDD000986B97 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				089C72E4299CDE6C00986B97 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				9CFF997129C8969B00FE9ECF /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 08209C83257169DB00FE51F5 /* Products */;
 			projectDirPath = "";
@@ -794,6 +803,7 @@
 				080B869B29BFC4FD0083D0FA /* ViewOutputs+Extensions.swift in Sources */,
 				080B868E29BF63E50083D0FA /* PaymentSceneAnalyticsTests.swift in Sources */,
 				086BB778257E685D00249899 /* PaymentPresenterTests.swift in Sources */,
+				9CFF997529C8971B00FE9ECF /* CartSnapshotTests.swift in Sources */,
 				084AAA83257FA1F800DE7EE1 /* LocalizerTests.swift in Sources */,
 				086BB76D257E60DB00249899 /* FirebaseAnalyticsServiceStub.swift in Sources */,
 				080B869829BFC3F20083D0FA /* CartSceneAnalyticsTests.swift in Sources */,
@@ -1090,6 +1100,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		9CFF997129C8969B00FE9ECF /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1102,6 +1120,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 089C72E4299CDE6C00986B97 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
 			productName = FacebookCore;
+		};
+		9CFF997229C8969B00FE9ECF /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9CFF997129C8969B00FE9ECF /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

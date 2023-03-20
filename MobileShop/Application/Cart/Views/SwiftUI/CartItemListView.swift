@@ -35,6 +35,6 @@ struct CartItemListView_Previews: PreviewProvider {
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),
             CartProductItemViewContent(title: "Coupon discount", price: "", quantity: "", discount: "5% off")
-        ], discounts: [], total: .init(title: "Total", amount: "12"))))
+        ], discounts: [], total: .init(title: "Total", amount: "12")), payTitle: "Pay"))
     }
 }
