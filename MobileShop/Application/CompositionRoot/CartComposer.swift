@@ -42,7 +42,7 @@ final class CartComposer: CartComposing {
 //        cartViewController.outputs = viewOutputs
         presenter.view = viewModel
         viewModel.delegate = presenter
-        let cartView = CartItemListView(viewModel: viewModel)
+        let cartView = CartItemView(viewModel: viewModel)
 
         let hostingController = UIHostingController(rootView: cartView)
 

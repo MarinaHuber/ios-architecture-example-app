@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartItemView: NibView {
+class CartItemViewNib: NibView {
     func setDescription(_ text: String?) {
         descriptionLabel.text = text
     }

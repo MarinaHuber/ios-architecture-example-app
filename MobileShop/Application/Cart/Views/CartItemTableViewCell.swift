@@ -8,8 +8,8 @@
 import UIKit
 
 class CartItemTableViewCell: UITableViewCell {
-    lazy var cartItemView: CartItemView = {
-        return CartItemView(frame: .zero).withAutoLayout()
+    lazy var cartItemView: CartItemViewNib = {
+        return CartItemViewNib(frame: .zero).withAutoLayout()
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
