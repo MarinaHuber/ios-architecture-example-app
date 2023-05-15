@@ -25,8 +25,10 @@ final class CartCoordinator: CartCoordinating {
 
     func transitionToCartScene(in navigationController: UINavigationController, animated: Bool) {
         let cartScene = dependencies.composer.composeCartScene(with: self)
-        navigationController.pushViewController(cartScene, animated: animated)
-        self.navigationController = navigationController
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            navigationController.pushViewController(cartScene, animated: animated)
+            self.navigationController = navigationController
+        }
     }
 }
 

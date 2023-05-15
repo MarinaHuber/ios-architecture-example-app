@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartItemView: View {
 
-    @ObservedObject var viewModel: CartItemListViewModel
+    @ObservedObject var viewModel: CartItemListViewAdapter
     @State var showPayView: Bool
 
     var body: some View {
@@ -31,14 +31,11 @@ struct CartItemView: View {
                     NavigationLink("", destination:  ConfirmAmountView(viewModel: viewModel), isActive: $showPayView)
                 }
         }
-        .onAppear(perform: {
-            self.viewModel.delegate?.onViewDidLoad()
-        })
     }
 }
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CartItemView(viewModel: CartItemListViewModel(content: .init(products: [
+        CartItemView(viewModel: CartItemListViewAdapter(content: .init(products: [
             CartProductItemViewContent(title: "Cotton T-shirt", price: "$19.99", quantity: "x2", discount: nil),
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),

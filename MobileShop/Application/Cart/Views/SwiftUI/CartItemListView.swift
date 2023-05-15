@@ -7,7 +7,7 @@ import SwiftUI
 
 struct CartItemListView: View {
 
-    @ObservedObject var viewModel: CartItemListViewModel
+    @ObservedObject var viewModel: CartItemListViewAdapter
 
     var body: some View {
 
@@ -23,14 +23,13 @@ struct CartItemListView: View {
             }
         }
         .onAppear(perform: {
-            self.viewModel.delegate?.onViewDidLoad()
+            self.viewModel.viewOutputs?.onViewDidLoad()
         })
     }
 }
 struct CartItemListView_Previews: PreviewProvider {
     static var previews: some View {
-
-        CartItemListView(viewModel: CartItemListViewModel(content: .init(products: [
+        CartItemListView(viewModel: CartItemListViewAdapter(content: .init(products: [
             CartProductItemViewContent(title: "Cotton T-shirt", price: "$19.99", quantity: "x2", discount: nil),
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),

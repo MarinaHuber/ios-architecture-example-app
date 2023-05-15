@@ -20,7 +20,7 @@ final class CartComposer: CartComposing {
     }
 
     func composeCartScene(with outputs: CartSceneOutputs) -> UIViewController {
-        let viewModel = CartItemListViewModel(content: .init(products: [], discounts: [], total: .init(title: "", amount: "")), payTitle: "Pay")
+        let viewAdapter = CartItemListViewAdapter()
 
         let mobileShopApiClient = URLSessionMobileShopAPIClient.development()
         let cartService = CartRemoteService(apiClient: mobileShopApiClient)
@@ -34,15 +34,15 @@ final class CartComposer: CartComposing {
 
         let presenter = CartPresenter(dependencies: presenterDependencies, outputs: outputs)
 
-//        let viewOutputs = CartSceneAnalyticsDecorators.CartViewOutputsDecorator(
-//            decoratee: presenter,
-//            firebaseAnalyticsService: provideFirebaseAnalyticsServicing()
-//        )
+        let viewOutputs = CartSceneAnalyticsDecorators.CartViewOutputsDecorator(
+            decoratee: presenter,
+            firebaseAnalyticsService: provideFirebaseAnalyticsServicing()
+        )
 //        let cartViewController: CartViewController = .initFromStoryboard()
 //        cartViewController.outputs = viewOutputs
-        presenter.view = viewModel
-        viewModel.delegate = presenter
-        let cartView = CartItemView(viewModel: viewModel, showPayView: false)
+        presenter.view = WeakReferenceProxy(viewAdapter)
+        viewAdapter.viewOutputs = viewOutputs
+        let cartView = CartItemView(viewModel: viewAdapter, showPayView: false)
 
         let hostingController = UIHostingController(rootView: cartView)
 

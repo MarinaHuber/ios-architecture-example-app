@@ -5,13 +5,18 @@
 
 import SnapshotTesting
 import XCTest
+import SwiftUI
 @testable import MobileShop
 
 class CartSnapshotTests: XCTestCase {
 
-    func testSwiftUICartView() {
+//testSwiftUICartViewFullWithProducts&DiscountsLightMode
+//testSwiftUICartViewEmptyLightMode
+//testSwiftUICartViewWithProducts&DiscountsDarkMode
+
+    func testSwiftUICartViewFullWithProducts() {
             //given
-        let cartView = CartItemView(viewModel: CartItemListViewModel(content: .init(products: [
+        let cartView = CartItemView(viewModel: CartItemListViewAdapter(content: .init(products: [
             CartProductItemViewContent(title: "Cotton T-shirt", price: "$19.99", quantity: "x2", discount: nil),
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),
@@ -20,12 +25,19 @@ class CartSnapshotTests: XCTestCase {
             //then
         assertSnapshot(matching: cartView, as: .image)
     }
-
+    
     func testSwiftUIConfirmAmountView() {
-        //given
-        let confirmView = ConfirmAmountView(viewModel: CartItemListViewModel(content: .init(products: [], discounts: [], total: .init(title: "Amount", amount: "$85")), payTitle: ""))
-        //when
-        //then
+            //given
+        let confirmView = ConfirmAmountView(viewModel: CartItemListViewAdapter(content: .init(products: [], discounts: [], total: .init(title: "Amount", amount: "$85")), payTitle: "")).referenceFrame()
+            //when
+            //then
         assertSnapshot(matching: confirmView, as: .image)
+    }
+}
+
+private extension SwiftUI.View {
+    func referenceFrame() -> some View {
+        let referenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        return self.frame(width: referenceSize.width, height: referenceSize.height)
     }
 }

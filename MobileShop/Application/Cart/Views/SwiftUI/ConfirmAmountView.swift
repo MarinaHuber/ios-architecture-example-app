@@ -5,7 +5,7 @@
 import SwiftUI
 
 struct ConfirmAmountView: View {
-    @ObservedObject var viewModel: CartItemListViewModel
+    @ObservedObject var viewModel: CartItemListViewAdapter
 
     var body: some View {
         VStack {
@@ -28,6 +28,6 @@ struct ConfirmAmountView: View {
 
 struct ConfirmAmountView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfirmAmountView(viewModel: CartItemListViewModel(content: .init(products: [], discounts: [], total: .init(title: "Total", amount: "$82")), payTitle: ""))
+        ConfirmAmountView(viewModel: CartItemListViewAdapter(content: .init(products: [], discounts: [], total: .init(title: "Total", amount: "$82")), payTitle: ""))
     }
 }

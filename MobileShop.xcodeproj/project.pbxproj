@@ -86,7 +86,7 @@
 		08FF955625812BDE0095A408 /* FacebookTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF955525812BDE0095A408 /* FacebookTracker.swift */; };
 		08FF95732581428D0095A408 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FF95722581428D0095A408 /* UITableViewCell+Extensions.swift */; };
 		9C395CF329C4F07F00A57DDD /* CartItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C395CF229C4F07F00A57DDD /* CartItemListView.swift */; };
-		9CFF996729C85BDB00FE9ECF /* CartItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996629C85BDB00FE9ECF /* CartItemListViewModel.swift */; };
+		9CFF996729C85BDB00FE9ECF /* CartItemListViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996629C85BDB00FE9ECF /* CartItemListViewAdapter.swift */; };
 		9CFF996C29C8606700FE9ECF /* ConfirmAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996A29C8606700FE9ECF /* ConfirmAmountView.swift */; };
 		9CFF996D29C8606700FE9ECF /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFF996B29C8606700FE9ECF /* CartItemView.swift */; };
 		9CFF997329C8969B00FE9ECF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 9CFF997229C8969B00FE9ECF /* SnapshotTesting */; };
@@ -185,7 +185,7 @@
 		08FF955525812BDE0095A408 /* FacebookTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookTracker.swift; sourceTree = "<group>"; };
 		08FF95722581428D0095A408 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		9C395CF229C4F07F00A57DDD /* CartItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemListView.swift; sourceTree = "<group>"; };
-		9CFF996629C85BDB00FE9ECF /* CartItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemListViewModel.swift; sourceTree = "<group>"; };
+		9CFF996629C85BDB00FE9ECF /* CartItemListViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemListViewAdapter.swift; sourceTree = "<group>"; };
 		9CFF996A29C8606700FE9ECF /* ConfirmAmountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmAmountView.swift; sourceTree = "<group>"; };
 		9CFF996B29C8606700FE9ECF /* CartItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 		9CFF997429C8971B00FE9ECF /* CartSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSnapshotTests.swift; sourceTree = "<group>"; };
@@ -521,9 +521,9 @@
 		087AC897257666D0006FF4E6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				087AC868257662E6006FF4E6 /* CartServicing.swift */,
 				08137857257A626300FFE4AE /* CartRemoteService.swift */,
 				087AC88F257666AB006FF4E6 /* CartRemoteStore.swift */,
+				087AC868257662E6006FF4E6 /* CartServicing.swift */,
 				087AC8A02576677B006FF4E6 /* ProductsRemoteStore.swift */,
 				0878FEFF25792B0C007E037E /* DiscountsRemoteStore.swift */,
 				08CE88F625790D1600BEE7EF /* fake-api.json */,
@@ -610,7 +610,7 @@
 		9CFF996529C85BBD00FE9ECF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9CFF996629C85BDB00FE9ECF /* CartItemListViewModel.swift */,
+				9CFF996629C85BDB00FE9ECF /* CartItemListViewAdapter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -757,7 +757,7 @@
 				087AC8A12576677B006FF4E6 /* ProductsRemoteStore.swift in Sources */,
 				087AC8442575646C006FF4E6 /* NibView.swift in Sources */,
 				089CC10B25EBC1FA002963B9 /* CartRules.swift in Sources */,
-				9CFF996729C85BDB00FE9ECF /* CartItemListViewModel.swift in Sources */,
+				9CFF996729C85BDB00FE9ECF /* CartItemListViewAdapter.swift in Sources */,
 				08209CEA25716F1E00FE51F5 /* UIViewController+Extensions.swift in Sources */,
 				087AC87125766310006FF4E6 /* Cart.swift in Sources */,
 				08209C8A257169DB00FE51F5 /* CartViewController.swift in Sources */,
