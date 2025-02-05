@@ -33,12 +33,7 @@ workflows:
             xcode-project run-tests \
               --project MobileShop.xcodeproj\
               --scheme MobileShop \
-              --device "iPhone 15"
           test_report: build/ios/test/*.xml
-      artifacts:
-        - build/ios/ipa/*.ipa
-        - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
-        - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
       publishing:           
          email:
            recipients:
