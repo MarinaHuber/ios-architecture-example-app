@@ -13,7 +13,7 @@ workflows:
           - push
           - pull_request
         branch_patterns:
-          - pattern: develop
+          - pattern: testing
             include: true
             source: true
       scripts:
@@ -35,7 +35,7 @@ workflows:
               --project MyAwesomeApp.xcworkspace \
               --scheme MyAwesomeApp \
               --device "iPhone 15"
-        test_report: build/ios/test/*.xml
+      test_report: build/ios/test/*.xml
       artifacts:
         - build/ios/ipa/*.ipa
         - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
