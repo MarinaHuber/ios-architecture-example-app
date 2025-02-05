@@ -4,7 +4,6 @@ workflows:
       instance_type: mac_mini_m2
       environment:
         vars:
-          XCODE_WORKSPACE: "MobileShop.xcworkspace"
           XCODE_SCHEME: "MobileShop"
           BUNDLE_ID: "com.srdanstanic.MobileShop"
         xcode: latest
@@ -32,7 +31,7 @@ workflows:
         - name: Run iOS test
           script: | 
             xcode-project run-tests \
-              --project MobileShop.xcworkspace \
+              --project MobileShop.xcodeproj\
               --scheme MobileShop \
               --device "iPhone 15"
           test_report: build/ios/test/*.xml
