@@ -24,7 +24,7 @@ class CartSnapshotTests: XCTestCase {
         ], discounts: [], total: .init(title: "Total", amount: "$85")), payTitle: "Pay"), showPayView: true).referenceFrame()
 
         assertSnapshot(matching: cartView, as: .image(
-            layout: .fixed(width: 375, height: 667),
+            layout: .fixed(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height),
             traits: .init(userInterfaceStyle: .light)
         ))
     }
@@ -33,7 +33,7 @@ class CartSnapshotTests: XCTestCase {
         let confirmView = ConfirmAmountView(viewModel: CartItemListViewAdapter(content: .init(products: [], discounts: [], total: .init(title: "Amount", amount: "$85")), payTitle: "")).referenceFrame()
 
         assertSnapshot(matching: confirmView, as: .image(
-            layout: .fixed(width: 375, height: 667),
+            layout: .fixed(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height),
             traits: .init(userInterfaceStyle: .light)
         ))
     }
@@ -41,7 +41,7 @@ class CartSnapshotTests: XCTestCase {
 
 private extension SwiftUI.View {
     func referenceFrame() -> some View {
-        let referenceSize = CGSize(width: 375, height: 667)
+        let referenceSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         return self.frame(width: referenceSize.width, height: referenceSize.height)
     }
 }
