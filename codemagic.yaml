@@ -20,8 +20,6 @@ workflows:
           script: echo "Hello Codemagician!"
         - name: Run Snapshot Tests
           script: |
-        - name: Run Snapshot Tests
-          script: |
             xcodebuild test \
               --project MobileShop.xcodeproj\
               --scheme MobileShop \
