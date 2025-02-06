@@ -20,7 +20,7 @@ workflows:
           script: echo "Hello Codemagician!"
         - name: Run Snapshot Tests
           script: |
-          xcodebuild test \
+           xcodebuild test \
             -workspace "$XCODE_WORKSPACE" \
             -scheme "$XCODE_SCHEME" \
             -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2" \
