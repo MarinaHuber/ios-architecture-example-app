@@ -13,6 +13,9 @@ extension CartViewContent {
 class CartItemListViewAdapter: ObservableObject, CartView {
     @Published var cartContent: CartViewContent = .empty
     @Published var payTitle: String = ""
+    private var titleLabel: UILabel?
+    private var loadingIndicator: UIActivityIndicatorView?
+    private var viewController: UIViewController?
 
     var viewOutputs: CartViewOutputs? {
         didSet {
@@ -31,15 +34,20 @@ class CartItemListViewAdapter: ObservableObject, CartView {
     }
 
     func setTitle(_ title: String) {
-            // TODO title: "Cart"
+        titleLabel?.text = title
     }
 
     func setLoadingIndicatorVisibility(isHidden: Bool) {
-            // TODO
+        loadingIndicator?.isHidden = isHidden
     }
 
     func showAlert(title: String?, message: String?, actions: [AlertAction], onDismiss: VoidHandler?) {
-            // TODO
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        for action in actions {
+            let alertAction = UIAlertAction(title: action.title, style: action.style, handler: { _ in action.handler?() })
+            alertController.addAction(alertAction)
+        }
+        viewController?.present(alertController, animated: true, completion: onDismiss)
     }
 
     func showCartContent(_ cartContent: CartViewContent) {

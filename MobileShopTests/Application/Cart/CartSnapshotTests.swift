@@ -10,28 +10,32 @@ import SwiftUI
 
 class CartSnapshotTests: XCTestCase {
 
-//testSwiftUICartViewFullWithProducts&DiscountsLightMode
-//testSwiftUICartViewEmptyLightMode
-//testSwiftUICartViewWithProducts&DiscountsDarkMode
+    override func setUp() {
+        super.setUp()
+        SnapshotTesting.diffTool = "ksdiff"
+    }
 
     func testSwiftUICartViewFullWithProducts() {
-            //given
         let cartView = CartItemView(viewModel: CartItemListViewAdapter(content: .init(products: [
             CartProductItemViewContent(title: "Cotton T-shirt", price: "$19.99", quantity: "x2", discount: nil),
             CartProductItemViewContent(title: "Baseball cap", price: "$21.99", quantity: "x1", discount: "5% off"),
             CartProductItemViewContent(title: "Premium T-shirt", price: "$29.99", quantity: "x1", discount: "10% off"),
             CartProductItemViewContent(title: "Coupon discount", price: "", quantity: "", discount: "5% off")
-        ], discounts: [], total: .init(title: "Total", amount: "$85")), payTitle: "Pay"), showPayView: true)
-            //then
-        assertSnapshot(matching: cartView, as: .image)
+        ], discounts: [], total: .init(title: "Total", amount: "$85")), payTitle: "Pay"), showPayView: true).referenceFrame()
+
+        assertSnapshot(matching: cartView, as: .image(
+            layout: .fixed(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height),
+            traits: .init(userInterfaceStyle: .light)
+        ))
     }
     
     func testSwiftUIConfirmAmountView() {
-            //given
         let confirmView = ConfirmAmountView(viewModel: CartItemListViewAdapter(content: .init(products: [], discounts: [], total: .init(title: "Amount", amount: "$85")), payTitle: "")).referenceFrame()
-            //when
-            //then
-        assertSnapshot(matching: confirmView, as: .image)
+
+        assertSnapshot(matching: confirmView, as: .image(
+            layout: .fixed(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height),
+            traits: .init(userInterfaceStyle: .light)
+        ))
     }
 }
 

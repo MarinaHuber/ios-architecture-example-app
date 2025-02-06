@@ -1,0 +1,29 @@
+workflows:
+    develop:
+      name: Unit Test Swift
+      instance_type: mac_mini_m2
+      environment:
+        vars:
+          XCODE_SCHEME: "MobileShop"
+          BUNDLE_ID: "com.srdanstanic.MobileShop"
+        xcode: latest
+      triggering:
+        events:
+          - pull_request
+        branch_patterns:
+          - pattern: testing
+            include: true
+            source: true
+      scripts:
+        - name: Run Tests
+          script: |
+            set -e # exit on first failed command
+            xcodebuild test \
+              -project MobileShop.xcodeproj \
+              -scheme MobileShop \
+              -destination "platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2"
+          test_report: build/ios/test/*.xml
+      publishing:           
+         email:
+           recipients:
+            - user_1@example.com
