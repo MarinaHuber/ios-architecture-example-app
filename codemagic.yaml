@@ -9,17 +9,12 @@ workflows:
         xcode: latest
       triggering:
         events:
-          - push
           - pull_request
         branch_patterns:
           - pattern: testing
             include: true
             source: true
       scripts:
-        - name: say hello
-          script: echo "Hello Codemagician!"
-        - name: Run Snapshot Tests
-          scripts:
         - name: Run Tests
           script: |
             set -e # exit on first failed command
