@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol CartComposing {
     func composeCartScene(with outputs: CartSceneOutputs) -> UIViewController
+
 }
 
 final class CartComposer: CartComposing {
@@ -19,7 +20,8 @@ final class CartComposer: CartComposing {
         self.provideFirebaseAnalyticsServicing = provideFirebaseAnalyticsServicing
     }
 
-    func composeCartScene(with outputs: CartSceneOutputs) -> UIViewController {
+    func composeCartScene(with outputs: CartSceneOutputs) -> UIViewController
+ {
         let viewAdapter = CartItemListViewAdapter()
 
         let mobileShopApiClient = URLSessionMobileShopAPIClient.development()
@@ -38,9 +40,9 @@ final class CartComposer: CartComposing {
             decoratee: presenter,
             firebaseAnalyticsService: provideFirebaseAnalyticsServicing()
         )
-//        let cartViewController: CartViewController = .initFromStoryboard()
-//        cartViewController.outputs = viewOutputs
-        presenter.view = WeakReferenceProxy(viewAdapter)
+        let cartViewController: CartViewController = .initFromStoryboard()
+        cartViewController.outputs = viewOutputs
+      //  presenter.view = WeakReferenceProxy(viewAdapter)
         viewAdapter.viewOutputs = viewOutputs
         let cartView = CartItemView(viewModel: viewAdapter, showPayView: false)
 
