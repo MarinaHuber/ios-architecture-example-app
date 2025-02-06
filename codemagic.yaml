@@ -18,7 +18,6 @@ workflows:
       scripts:
         - name: say hello
           script: echo "Hello Codemagician!"
-      scripts:
         - name: Run Snapshot Tests
           script: |
           xcodebuild test \
